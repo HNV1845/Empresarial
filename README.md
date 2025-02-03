@@ -1,2 +1,1 @@
-# EmpresarialReceptor
-Receptor Pagador
+# Empresarial
