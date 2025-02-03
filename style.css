@@ -14,25 +14,17 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px;
+    width: 350px;
 }
 
-h2 {
+h2, h3 {
     color: #333;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-input, select {
+progress {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 20px;
+    margin-top: 10px;
 }
 
 button {
@@ -49,13 +41,4 @@ button {
 
 button:hover {
     background-color: #0056b3;
-}
-
-#quiz {
-    display: none;
-}
-
-#result {
-    margin-top: 20px;
-    font-weight: bold;
 }
