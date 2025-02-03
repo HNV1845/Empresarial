@@ -1,1 +1,32 @@
+{
+    "preguntas": [
+        {
+            "pregunta": "¿Cuál es el propósito de la cuenta de aportaciones?",
+            "opciones": [
+                "Ser un fondo de ahorro personal",
+                "Formar parte del capital social de la cooperativa",
+                "Un sistema de préstamos rápidos"
+            ],
+            "respuesta": 1
+        },
+        {
+            "pregunta": "¿Quiénes pueden abrir una cuenta de CDP infantil?",
+            "opciones": [
+                "Cualquier persona mayor de 18 años",
+                "Solo los menores de edad",
+                "Padres o tutores legales en compañía del menor"
+            ],
+            "respuesta": 2
+        },
+        {
+            "pregunta": "¿Cuál es el monto mínimo de apertura de un depósito a plazo fijo?",
+            "opciones": [
+                "Q.500.00",
+                "Q.1,000.00",
+                "Q.2,000.00"
+            ],
+            "respuesta": 1
+        }
+    ]
+}
 
