@@ -1,31 +1,27 @@
 {
-    "preguntas": [
-        {
-            "pregunta": "¿Cuál es el propósito de la cuenta de aportaciones?",
-            "opciones": [
-                "Ser un fondo de ahorro personal",
-                "Formar parte del capital social de la cooperativa",
-                "Un sistema de préstamos rápidos"
-            ],
-            "respuesta": 1
-        },
-        {
-            "pregunta": "¿Quiénes pueden abrir una cuenta de CDP infantil?",
-            "opciones": [
-                "Cualquier persona mayor de 18 años",
-                "Solo los menores de edad",
-                "Padres o tutores legales en compañía del menor"
-            ],
-            "respuesta": 2
-        },
-        {
-            "pregunta": "¿Cuál es el monto mínimo de apertura de un depósito a plazo fijo?",
-            "opciones": [
-                "Q.500.00",
-                "Q.1,000.00",
-                "Q.2,000.00"
-            ],
-            "respuesta": 1
-        }
-    ]
+    "preguntas": {
+        "secretaria": [
+            { "pregunta": "¿Cuál es la función principal de la secretaría?", "opciones": ["Atender clientes", "Gestionar documentos", "Aprobar créditos"], "respuesta": 1 },
+            { "pregunta": "¿Qué documento es obligatorio para una apertura de cuenta?", "opciones": ["Pasaporte", "DPI", "Licencia de conducir"], "respuesta": 1 },
+            { "pregunta": "¿Cada cuánto se debe actualizar la información del asociado?", "opciones": ["Cada 6 meses", "Cada año", "Cada 5 años"], "respuesta": 1 },
+            { "pregunta": "¿Qué tipo de cuentas puede manejar un menor de edad?", "opciones": ["Cuentas personales", "Cuentas Infanto", "Cuentas colectivas"], "respuesta": 1 }
+        ],
+        "captaciones": [
+            { "pregunta": "¿Cuál es el monto mínimo para abrir un CDP?", "opciones": ["Q.500.00", "Q.1,000.00", "Q.2,000.00"], "respuesta": 1 },
+            { "pregunta": "¿Quién puede abrir una cuenta institucional?", "opciones": ["Cualquier persona", "El representante legal", "Un asociado"], "respuesta": 1 },
+            { "pregunta": "¿Qué sucede si un CDP no es retirado a su vencimiento?", "opciones": ["Se renueva automáticamente", "Se pierde", "Debe reclamarse en 3 días"], "respuesta": 0 },
+            { "pregunta": "¿Qué documento ampara el depósito a plazo fijo?", "opciones": ["Contrato de servicio", "Certificado de CDP", "Comprobante de pago"], "respuesta": 1 },
+            { "pregunta": "¿Los depósitos de CDP pueden realizarse con cheque?", "opciones": ["Sí", "No", "Solo en algunos casos"], "respuesta": 0 },
+            { "pregunta": "¿Cómo se identifican los beneficiarios de un CDP?", "opciones": ["Por DPI", "Por número de cuenta", "Por documento firmado"], "respuesta": 2 }
+        ],
+        "caja": [
+            { "pregunta": "¿Cuál es el monto máximo autorizado en caja?", "opciones": ["Q.5,000.00", "Q.10,000.00", "Q.15,000.00"], "respuesta": 1 },
+            { "pregunta": "¿Qué documento se emite por cada ingreso o egreso en caja?", "opciones": ["Boleta de retiro", "Recibo autorizado", "Estado de cuenta"], "respuesta": 1 },
+            { "pregunta": "¿Qué hacer si un asociado presenta un cheque con alteraciones?", "opciones": ["Devolverlo", "Aceptarlo con firma", "Pedir autorización especial"], "respuesta": 0 },
+            { "pregunta": "¿Cómo se realizan los retiros en caja sin presencia del titular?", "opciones": ["Autorización escrita", "Llamada de verificación", "Depósito previo"], "respuesta": 0 },
+            { "pregunta": "¿Qué documento es obligatorio para procesar una remesa?", "opciones": ["Pasaporte", "Clave de remesa y DPI", "Número de cuenta"], "respuesta": 1 },
+            { "pregunta": "¿Qué sucede si un colaborador pierde dinero en caja?", "opciones": ["Debe reponerlo", "Se descuenta del fondo de seguridad", "Se reporta y anula"], "respuesta": 0 },
+            { "pregunta": "¿Cómo se documentan los arqueos de caja?", "opciones": ["Con informe diario", "Con firma digital", "Con autorización del gerente"], "respuesta": 0 }
+        ]
+    }
 }
