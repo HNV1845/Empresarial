@@ -4,27 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capacitación de Personal</title>
+    <title>Capacitación - Cooperativa Empresarial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Capacitación de Personal</h2>
-        <form id="loginForm">
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required>
+        <h2>Bienvenido al Sistema de Capacitación 1.0</h2>
+        <div id="contenido">
+            <h3>Introducción</h3>
+            <p>Bienvenido a la capacitación de Cooperativa Empresarial. A continuación, se presentarán los temas relevantes a tu área.</p>
+            <button onclick="mostrarTemas()">Comenzar</button>
+        </div>
+        
+        <div id="temas" style="display:none;">
+            <h3>Contenido de Capacitación</h3>
+            <p id="contenidoArea"></p>
+            <input type="checkbox" id="checkLeido" onclick="habilitarExamen()"> He leído y comprendido
+        </div>
 
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+        <div id="examen" style="display:none;">
+            <h3>Evaluación</h3>
+            <div id="preguntas"></div>
+            <button onclick="validarExamen()">Enviar Respuestas</button>
+        </div>
 
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-
-        <div id="quiz" style="display: none;">
-            <h2>Preguntas de Capacitación</h2>
-            <div id="question-container"></div>
-            <button id="next-button">Siguiente</button>
-            <p id="result"></p>
+        <div id="resultado" style="display:none;">
+            <h3>Resultados</h3>
+            <p id="mensajeResultado"></p>
         </div>
     </div>
 
