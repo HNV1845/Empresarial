@@ -4,46 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reglamento Interactivo</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .container { max-width: 600px; margin: auto; }
-        .category { margin: 20px 0; padding: 10px; background: #f4f4f4; border-radius: 10px; cursor: pointer; }
-        .details { display: none; margin-top: 10px; }
-    </style>
-    <script>
-        function toggleDetails(id) {
-            var element = document.getElementById(id);
-            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
-        }
-    </script>
+    <title>Inicio - Cooperativa Empresarial</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Reglamento Interactivo</h2>
-        
-        <div class="category" onclick="toggleDetails('apertura')">
-            <strong>Apertura</strong>
-            <div id="apertura" class="details">
-                <p><strong>Artículo 1:</strong> Apertura</p>
-                <p><strong>Artículo 10:</strong> Monto de apertura: Q100.00</p>
-                <p><strong>Artículo 30:</strong> Requisitos: DPI, recibo de luz</p>
-            </div>
-        </div>
-        
-        <div class="category" onclick="toggleDetails('beneficios')">
-            <strong>Beneficios</strong>
-            <div id="beneficios" class="details">
-                <p><strong>Artículo 14:</strong> Beneficios: Dinero gratis y toldos</p>
-            </div>
-        </div>
-        
-        <div class="category" onclick="toggleDetails('sanciones')">
-            <strong>Sanciones</strong>
-            <div id="sanciones" class="details">
-                <p><strong>Artículo 18:</strong> Sanciones: Prohibido los gatos</p>
-            </div>
-        </div>
+        <h2>Bienvenido al Sistema de Capacitación</h2>
+        <form id="loginForm">
+            <label for="nombre">Nombre y Apellido:</label>
+            <input type="text" id="nombre" required>
+            
+            <label for="area">Selecciona tu área:</label>
+            <select id="area" required>
+                <option value="">-- Selecciona --</option>
+                <option value="secretaria">Secretaría</option>
+                <option value="captaciones">Captaciones</option>
+                <option value="caja">Caja</option>
+            </select>
+            
+            <button type="submit">Iniciar</button>
+        </form>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
