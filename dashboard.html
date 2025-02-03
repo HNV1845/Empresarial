@@ -4,21 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Usuario</title>
+    <title>Panel de Administrador</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Bienvenido, <span id="usuarioNombre"></span></h2>
-        <h3>Área: <span id="usuarioArea"></span></h3>
-        
-        <h3>Tu progreso</h3>
-        <progress id="progreso" value="0" max="100"></progress>
-        <p id="mensajeProgreso">Aún no has completado ninguna sección.</p>
-        
-        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+        <h2>Panel de Administración</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Área</th>
+                    <th>Monedas</th>
+                    <th>Preguntas Incorrectas</th>
+                    <th>Progreso</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="usuariosLista">
+                <!-- Aquí se cargarán los usuarios dinámicamente -->
+            </tbody>
+        </table>
     </div>
-    
+
     <script src="admin.js"></script>
 </body>
 </html>
