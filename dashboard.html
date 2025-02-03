@@ -1,1 +1,24 @@
-
+<html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Bienvenido, <span id="usuarioNombre"></span></h2>
+        <h3>Área: <span id="usuarioArea"></span></h3>
+        
+        <h3>Tu progreso</h3>
+        <progress id="progreso" value="0" max="100"></progress>
+        <p id="mensajeProgreso">Aún no has completado ninguna sección.</p>
+        
+        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+    
+    <script src="admin.js"></script>
+</body>
+</html>
