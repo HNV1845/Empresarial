@@ -17,6 +17,9 @@ body {
     text-align: center;
     width: 90%;
     max-width: 400px;
+    max-height: 90vh; /* Limita la altura del contenedor */
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
@@ -62,3 +65,23 @@ progress {
     background-color: #28a745 !important;
     color: white !important;
 }
+
+/* Estilos para el contenedor de preguntas con scroll */
+#preguntas-container {
+    flex: 1; /* Ocupa el espacio disponible */
+    overflow-y: auto; /* Habilita el scroll vertical */
+    margin-bottom: 15px; /* Espacio antes del botón */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.pregunta-item {
+    margin-bottom: 15px;
+}
+
+#resultado {
+    margin-top: 15px;
+    font-weight: bold;
+}
+ este es el codigo anterior, podrias solo implementarlo este y el que acabas de escribir, solo quiero evitar errores de que otra cosa deje de funcionar.
