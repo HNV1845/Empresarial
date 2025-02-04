@@ -1,0 +1,24 @@
+{
+    "usuarios": [
+        {
+            "nombre": "Admin",
+            "area": "Todas"
+        },
+        {
+            "nombre": "Alex",
+            "area": "Captaciones"
+        },
+        {
+            "nombre": "Juan",
+            "area": "Creditos"
+        },
+        {
+            "nombre": "Cindy",
+            "area": "Caja"
+        },
+        {
+            "nombre": "Nohemy",
+            "area": "Secretaria"
+        }
+    ]
+}
