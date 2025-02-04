@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Evaluación</h2>
+        <p>Responde las siguientes preguntas para avanzar.</p>
+        <div id="preguntas"></div>
+        <button id="btnEnviar">Enviar Respuestas</button>
+        <p id="resultado" style="display:none;"></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const area = localStorage.getItem("area");
+            const preguntasContainer = document.getElementById("preguntas");
+            const btnEnviar = document.getElementById("btnEnviar");
+            const resultado = document.getElementById("resultado");
+            
+            fetch("data.json")
+                .then(response => response.json())
+                .then(data => {
+                    const preguntas = data.preguntas[area] || [];
+                    preguntas.forEach((pregunta, index) => {
+                        const divPregunta = document.createElement("div");
+                        divPregunta.innerHTML = `<p>${pregunta.pregunta}</p>` +
+                            pregunta.opciones.map((opcion, i) => 
+                                `<input type='radio' name='pregunta${index}' value='${i}'> ${opcion}<br>`
+                            ).join("");
+                        preguntasContainer.appendChild(divPregunta);
+                    });
+                });
+            
+            btnEnviar.addEventListener("click", function() {
+                let correctas = 0;
+                let totalPreguntas = document.querySelectorAll("#preguntas div").length;
+                
+                document.querySelectorAll("#preguntas div").forEach((divPregunta, index) => {
+                    const seleccionada = divPregunta.querySelector("input[type='radio']:checked");
+                    if (seleccionada && parseInt(seleccionada.value) === data.preguntas[area][index].respuesta) {
+                        correctas++;
+                    }
+                });
+                
+                resultado.style.display = "block";
+                if (correctas >= totalPreguntas / 2) {
+                    resultado.textContent = `Felicidades, aprobaste con ${correctas} de ${totalPreguntas} respuestas correctas.`;
+                    localStorage.setItem("monedas", parseInt(localStorage.getItem("monedas")) + correctas);
+                    setTimeout(() => window.location.href = "temario.html", 3000);
+                } else {
+                    resultado.textContent = "No aprobaste, vuelve a leer el contenido e intenta nuevamente.";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
