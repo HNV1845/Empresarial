@@ -18,7 +18,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const monedas = localStorage.getItem("monedas") || 0;
             document.getElementById("monedasFinal").textContent = `Monedas obtenidas: ${monedas}`;
-            localStorage.clear();
+            localStorage.clear(); // Limpiar localStorage al finalizar
         });
     </script>
 </body>
