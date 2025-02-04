@@ -41,6 +41,13 @@
                         };
                         temarioLista.appendChild(btnTema);
                     });
+
+                    // Verificar si todos los temas están completados
+                    if (temasCompletados.length === temas.length) {
+                        const mensaje = document.createElement("p");
+                        mensaje.textContent = "¡Has completado todos los temas!";
+                        temarioLista.appendChild(mensaje);
+                    }
                 });
         });
     </script>
