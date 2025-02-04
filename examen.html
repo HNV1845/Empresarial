@@ -35,20 +35,31 @@
                 });
             document.getElementById("btnEnviar").addEventListener("click", function() {
                 let correctas = 0;
-                document.querySelectorAll(".pregunta-item").forEach((divPregunta, index) => {
-                    const seleccionada = divPregunta.querySelector("input[type='radio']:checked");
-                    if (seleccionada && parseInt(seleccionada.value) === data.preguntas[area][index].respuesta) {
-                        correctas++;
-                    }
-                });
-                document.getElementById("resultado").style.display = "block";
-                if (correctas >= 4) {
-                    document.getElementById("resultado").textContent = `Felicidades, aprobaste con ${correctas} respuestas correctas.`;
-                    localStorage.setItem("monedas", parseInt(localStorage.getItem("monedas")) + correctas);
-                    setTimeout(() => window.location.href = "temario.html", 3000);
-                } else {
-                    document.getElementById("resultado").textContent = "No aprobaste, vuelve a leer el contenido e intenta nuevamente.";
-                }
+                fetch("data.json")
+                    .then(response => response.json())
+                    .then(data => {
+                        const preguntas = data.preguntas[area] || [];
+                        document.querySelectorAll(".pregunta-item").forEach((divPregunta, index) => {
+                            const seleccionada = divPregunta.querySelector("input[type='radio']:checked");
+                            if (seleccionada && parseInt(seleccionada.value) === preguntas[index].respuesta) {
+                                correctas++;
+                            }
+                        });
+                        const resultado = document.getElementById("resultado");
+                        resultado.style.display = "block";
+                        resultado.textContent = `Respuestas correctas: ${correctas} de ${preguntas.length}`;
+                        if (correctas >= 4) {
+                            let temasCompletados = JSON.parse(localStorage.getItem("temasCompletados")) || [];
+                            const temaActual = parseInt(localStorage.getItem("temaActual"));
+                            if (!temasCompletados.includes(temaActual)) {
+                                temasCompletados.push(temaActual);
+                                localStorage.setItem("temasCompletados", JSON.stringify(temasCompletados));
+                            }
+                            setTimeout(() => window.location.href = "temario.html", 3000);
+                        } else {
+                            resultado.textContent += "\nNo aprobaste, vuelve a leer el contenido e intenta nuevamente.";
+                        }
+                    });
             });
         });
     </script>
