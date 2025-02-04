@@ -24,6 +24,7 @@
                     temarios.forEach((tema, index) => {
                         const btnTema = document.createElement("button");
                         btnTema.textContent = tema;
+                        btnTema.classList.add("tema-boton");
                         btnTema.onclick = function() {
                             localStorage.setItem("temaActual", index);
                             localStorage.setItem("temaNombre", tema);
@@ -31,6 +32,10 @@
                         };
                         temarioLista.appendChild(btnTema);
                     });
+                })
+                .catch(error => {
+                    temarioLista.innerHTML = "<p>Error al cargar los temas. Intenta nuevamente.</p>";
+                    console.error("Error cargando data.json:", error);
                 });
         });
     </script>
