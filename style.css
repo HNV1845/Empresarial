@@ -17,6 +17,9 @@ body {
     text-align: center;
     width: 90%;
     max-width: 400px;
+    max-height: 90vh; /* Limita la altura del contenedor */
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
@@ -63,11 +66,21 @@ progress {
     color: white !important;
 }
 
-/* Estilos para el scroll view */
-#contenedor-preguntas {
-    height: 300px; /* Ajusta la altura según tus necesidades */
+/* Estilos para el contenedor de preguntas con scroll */
+#preguntas-container {
+    flex: 1; /* Ocupa el espacio disponible */
     overflow-y: auto; /* Habilita el scroll vertical */
-    margin-bottom: 15px; /* Espacio entre el scroll y el botón */
-    border: 1px solid #ccc; /* Opcional: borde para el contenedor */
-    padding: 10px; /* Opcional: padding interno para el contenedor */
+    margin-bottom: 15px; /* Espacio antes del botón */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.pregunta-item {
+    margin-bottom: 15px;
+}
+
+#resultado {
+    margin-top: 15px;
+    font-weight: bold;
 }
