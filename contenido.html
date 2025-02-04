@@ -21,8 +21,8 @@
             fetch("data.json")
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById("tituloTema").textContent = data.temario[area][temaIndex];
-                    document.getElementById("contenidoTema").textContent = data.contenido[area][temaIndex];
+                    document.getElementById("tituloTema").textContent = data.temario[area.toLowerCase()][temaIndex];
+                    document.getElementById("contenidoTema").textContent = data.contenido[area.toLowerCase()][temaIndex];
                 });
             document.getElementById("checkLeido").addEventListener("change", function() {
                 document.getElementById("btnContinuar").disabled = !this.checked;
