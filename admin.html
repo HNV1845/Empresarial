@@ -1,1 +1,34 @@
+<html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cooperativa Empresarial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Acceso de Administrador</h2>
+        <form id="adminLoginForm">
+            <label for="adminClave">Ingrese la clave de acceso:</label>
+            <input type="password" id="adminClave" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p id="mensajeError" class="error" style="display:none; color:red;">Clave incorrecta, intente nuevamente.</p>
+    </div>
+    
+    <script>
+        document.getElementById("adminLoginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const claveIngresada = document.getElementById("adminClave").value;
+            if (claveIngresada === "Empresarial100%") {
+                window.location.href = "dashboard.html";
+            } else {
+                document.getElementById("mensajeError").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
 
