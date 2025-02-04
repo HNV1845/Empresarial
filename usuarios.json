@@ -1,10 +1,6 @@
 {
     "usuarios": [
         {
-            "nombre": "Admin",
-            "area": "Todas"
-        },
-        {
             "nombre": "Alex",
             "area": "Captaciones"
         },
