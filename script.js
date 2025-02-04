@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const areasUnicas = new Set(data.usuarios.map(usuario => usuario.area)); // Obtener áreas únicas
             areasUnicas.forEach(area => {
                 const option = document.createElement("option");
-                option.value = area.toLowerCase(); // Convertir a minúsculas para evitar errores
+                option.value = area; // Usar el valor exacto del área
                 option.textContent = area;
                 areaSelect.appendChild(option);
             });
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(data => {
                     const usuarioAutorizado = data.usuarios.find(
                         usuario => usuario.nombre.toLowerCase() === nombre.toLowerCase() && 
-                                  (usuario.area.toLowerCase() === area.toLowerCase() || usuario.area.toLowerCase() === "todas")
+                                  usuario.area.toLowerCase() === area.toLowerCase()
                     );
 
                     if (usuarioAutorizado) {
