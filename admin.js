@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const listaUsuarios = document.getElementById("usuariosLista");
 
     function mostrarUsuarios() {
-        listaUsuarios.innerHTML = "";
+        listaUsuarios.innerHTML = ""; // Limpiar la lista antes de mostrar
         usuarios.forEach((usuario, index) => {
             const fila = document.createElement("tr");
             fila.innerHTML = `
                 <td>${usuario.nombre}</td>
                 <td>${usuario.area}</td>
-                <td>${usuario.monedas}</td>
+                <td>${usuario.monedas || 0}</td>
                 <td>${usuario.preguntasIncorrectas ? usuario.preguntasIncorrectas.join(", ") : ""}</td>
                 <td><progress value="${usuario.progreso || 0}" max="100"></progress></td>
                 <td><button onclick="eliminarUsuario(${index})">Eliminar</button></td>
@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     window.eliminarUsuario = function(index) {
-        usuarios.splice(index, 1);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-        mostrarUsuarios();
+        usuarios.splice(index, 1); // Eliminar el usuario del array
+        localStorage.setItem("usuarios", JSON.stringify(usuarios)); // Actualizar localStorage
+        mostrarUsuarios(); // Volver a mostrar la lista actualizada
     };
 
-    mostrarUsuarios();
+    mostrarUsuarios(); // Mostrar los usuarios al cargar la página
 });
