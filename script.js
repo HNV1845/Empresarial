@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
     const loginForm = document.getElementById("loginForm");
+    const areaSelect = document.getElementById("area");
+
+    // Cargar áreas dinámicamente desde usuarios.json
+    fetch("usuarios.json")
+        .then(response => response.json())
+        .then(data => {
+            const areasUnicas = new Set(data.usuarios.map(usuario => usuario.area)); // Obtener áreas únicas
+            areasUnicas.forEach(area => {
+                const option = document.createElement("option");
+                option.value = area.toLowerCase(); // Convertir a minúsculas para evitar errores
+                option.textContent = area;
+                areaSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error("Error al cargar áreas:", error);
+        });
+
+    // Validar el inicio de sesión
     if (loginForm) {
         loginForm.addEventListener("submit", function(event) {
             event.preventDefault();
