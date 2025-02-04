@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 .then(response => response.json())
                 .then(data => {
                     const usuarioAutorizado = data.usuarios.find(
-                        usuario => usuario.nombre === nombre && (usuario.area === area || usuario.area === "Todas")
+                        usuario => usuario.nombre.toLowerCase() === nombre.toLowerCase() && 
+                                  (usuario.area.toLowerCase() === area.toLowerCase() || usuario.area.toLowerCase() === "todas")
                     );
 
                     if (usuarioAutorizado) {
