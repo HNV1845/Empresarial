@@ -4,30 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Cooperativa Empresarial</title>
+    <title>Panel de Administración</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Acceso de Administrador</h2>
-        <form id="adminLoginForm">
-            <label for="adminClave">Ingrese la clave de acceso:</label>
-            <input type="password" id="adminClave" required>
-            <button type="submit">Ingresar</button>
-        </form>
-        <p id="mensajeError" class="error" style="display:none; color:red;">Clave incorrecta, intente nuevamente.</p>
+        <h2>Panel de Administración</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Área</th>
+                    <th>Monedas</th>
+                    <th>Preguntas Incorrectas</th>
+                    <th>Progreso</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="usuariosLista"></tbody>
+        </table>
     </div>
-
-    <script>
-        document.getElementById("adminLoginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const claveIngresada = document.getElementById("adminClave").value;
-            if (claveIngresada === "Empresarial100%") {
-                window.location.href = "admin.html";
-            } else {
-                document.getElementById("mensajeError").style.display = "block";
-            }
-        });
-    </script>
+    <script src="admin.js"></script>
 </body>
 </html>
