@@ -9,9 +9,9 @@
 </head>
 <body>
     <div class="container">
-        <h2>Evaluación</h2>
+        <h2>Examen</h2>
         <p>Responde las siguientes preguntas para avanzar.</p>
-        <div id="preguntas" class="scroll-container"></div>
+        <div id="preguntas"></div>
         <button id="btnEnviar">Enviar Respuestas</button>
         <p id="resultado" style="display:none;"></p>
     </div>
@@ -34,27 +34,21 @@
                     });
                 });
             document.getElementById("btnEnviar").addEventListener("click", function() {
-                fetch("data.json")
-                    .then(response => response.json())
-                    .then(data => {
-                        let correctas = 0;
-                        let totalPreguntas = document.querySelectorAll(".pregunta-item").length;
-                        document.querySelectorAll(".pregunta-item").forEach((divPregunta, index) => {
-                            const seleccionada = divPregunta.querySelector("input[type='radio']:checked");
-                            if (seleccionada && parseInt(seleccionada.value) === data.preguntas[area][index].respuesta) {
-                                correctas++;
-                            }
-                        });
-                        let resultado = document.getElementById("resultado");
-                        resultado.style.display = "block";
-                        if (correctas >= totalPreguntas / 2) {
-                            resultado.textContent = `Felicidades, aprobaste con ${correctas} de ${totalPreguntas} respuestas correctas.`;
-                            localStorage.setItem("monedas", parseInt(localStorage.getItem("monedas")) + correctas);
-                            setTimeout(() => window.location.href = "temario.html", 3000);
-                        } else {
-                            resultado.textContent = "No aprobaste, vuelve a leer el contenido e intenta nuevamente.";
-                        }
-                    });
+                let correctas = 0;
+                document.querySelectorAll(".pregunta-item").forEach((divPregunta, index) => {
+                    const seleccionada = divPregunta.querySelector("input[type='radio']:checked");
+                    if (seleccionada && parseInt(seleccionada.value) === data.preguntas[area][index].respuesta) {
+                        correctas++;
+                    }
+                });
+                document.getElementById("resultado").style.display = "block";
+                if (correctas >= 4) {
+                    document.getElementById("resultado").textContent = `Felicidades, aprobaste con ${correctas} respuestas correctas.`;
+                    localStorage.setItem("monedas", parseInt(localStorage.getItem("monedas")) + correctas);
+                    setTimeout(() => window.location.href = "temario.html", 3000);
+                } else {
+                    document.getElementById("resultado").textContent = "No aprobaste, vuelve a leer el contenido e intenta nuevamente.";
+                }
             });
         });
     </script>
