@@ -1,4 +1,37 @@
+/* ==============================
+   DATA.JSON - CORREGIDO
+   ============================== */
 {
+    "temario": {
+        "secretaria": ["Funciones de la Secretaría", "Documentación Requerida", "Actualización de Datos"],
+        "captaciones": ["Tipos de Depósitos", "Apertura de CDP", "Retiro y Vencimiento"],
+        "caja": ["Manejo de Caja", "Control de Cheques", "Remesas y Arqueos"],
+        "creditos": ["Solicitud de Crédito", "Evaluación Financiera", "Garantías y Requisitos", "Análisis de Riesgo", "Aprobación y Desembolso"]
+    },
+    "contenido": {
+        "secretaria": [
+            "Las funciones de la secretaría incluyen la gestión documental, atención a los asociados y control de archivos.",
+            "Para realizar cualquier trámite es necesario presentar DPI, formulario de solicitud y comprobante de pago.",
+            "La actualización de datos debe realizarse anualmente para mantener la información vigente."
+        ],
+        "captaciones": [
+            "Los depósitos pueden ser a la vista, a plazo fijo o programados, cada uno con diferentes beneficios.",
+            "Para abrir un Certificado de Depósito a Plazo (CDP) se necesita un monto mínimo de Q.1,000.00 y firmar contrato.",
+            "Si un CDP no se retira a su vencimiento, se renueva automáticamente con la misma tasa de interés."
+        ],
+        "caja": [
+            "El manejo de caja incluye el registro de ingresos y egresos, cierre diario y control de efectivo.",
+            "Los cheques deben ser revisados para evitar fraudes, verificando firmas y montos antes de aceptarlos.",
+            "Las remesas y arqueos permiten validar el saldo en caja y detectar errores o irregularidades."
+        ],
+        "creditos": [
+            "Para solicitar un crédito se debe llenar una solicitud, presentar DPI y demostrar capacidad de pago.",
+            "La evaluación financiera analiza ingresos, historial crediticio y endeudamiento del solicitante.",
+            "Las garantías pueden ser hipotecarias, prendarias o personales, según el tipo de crédito solicitado.",
+            "El análisis de riesgo permite determinar la viabilidad del crédito y mitigar posibles impagos.",
+            "Una vez aprobado el crédito, se firma el contrato y se desembolsa el monto acordado."
+        ]
+    },
     "preguntas": {
         "secretaria": [
             { "pregunta": "¿Cuál es la función principal de la secretaría?", "opciones": ["Atender clientes", "Gestionar documentos", "Aprobar créditos"], "respuesta": 1 },
