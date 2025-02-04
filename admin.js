@@ -4,18 +4,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function mostrarUsuarios() {
         listaUsuarios.innerHTML = ""; // Limpiar la lista antes de mostrar
-        usuarios.forEach((usuario, index) => {
-            const fila = document.createElement("tr");
-            fila.innerHTML = `
-                <td>${usuario.nombre}</td>
-                <td>${usuario.area}</td>
-                <td>${usuario.monedas || 0}</td>
-                <td>${usuario.preguntasIncorrectas ? usuario.preguntasIncorrectas.join(", ") : ""}</td>
-                <td><progress value="${usuario.progreso || 0}" max="100"></progress></td>
-                <td><button onclick="eliminarUsuario(${index})">Eliminar</button></td>
-            `;
-            listaUsuarios.appendChild(fila);
-        });
+        if (usuarios.length === 0) {
+            listaUsuarios.innerHTML = "<tr><td colspan='6'>No hay usuarios registrados.</td></tr>";
+        } else {
+            usuarios.forEach((usuario, index) => {
+                const fila = document.createElement("tr");
+                fila.innerHTML = `
+                    <td>${usuario.nombre}</td>
+                    <td>${usuario.area}</td>
+                    <td>${usuario.monedas || 0}</td>
+                    <td>${usuario.preguntasIncorrectas ? usuario.preguntasIncorrectas.join(", ") : ""}</td>
+                    <td><progress value="${usuario.progreso || 0}" max="100"></progress></td>
+                    <td><button onclick="eliminarUsuario(${index})">Eliminar</button></td>
+                `;
+                listaUsuarios.appendChild(fila);
+            });
+        }
     }
 
     window.eliminarUsuario = function(index) {
