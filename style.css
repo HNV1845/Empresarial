@@ -65,3 +65,21 @@ button:hover {
     margin-bottom: 15px;
     font-style: italic;
 }
+<style>
+.tema-boton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+.tema-boton:hover {
+    background-color: #0056b3;
+}
+</style>
