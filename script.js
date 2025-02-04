@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 localStorage.setItem("nombre", nombre);
                 localStorage.setItem("area", area);
                 localStorage.setItem("monedas", 0);
+                localStorage.setItem("temasCompletados", JSON.stringify([])); // Inicializa temas completados
                 window.location.href = "temario.html";
             } else {
                 alert("Por favor, completa todos los campos.");
