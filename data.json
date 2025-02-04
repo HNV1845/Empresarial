@@ -1,6 +1,4 @@
-/* ==============================
-   DATA.JSON - CORREGIDO
-   ============================== */
+
 {
     "temario": {
         "secretaria": ["Funciones de la Secretaría", "Documentación Requerida", "Actualización de Datos"],
