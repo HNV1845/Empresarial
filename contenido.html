@@ -18,22 +18,19 @@
         document.addEventListener("DOMContentLoaded", function() {
             const area = localStorage.getItem("area");
             const temaIndex = localStorage.getItem("temaActual");
-            const temaNombre = localStorage.getItem("temaNombre");
             const tituloTema = document.getElementById("tituloTema");
             const contenidoTema = document.getElementById("contenidoTema");
-            const checkLeido = document.getElementById("checkLeido");
-            const btnContinuar = document.getElementById("btnContinuar");
-            tituloTema.textContent = temaNombre || "Tema";
             fetch("data.json")
                 .then(response => response.json())
                 .then(data => {
-                    const contenido = data.contenido[area] ? data.contenido[area][temaIndex] : "Contenido no disponible";
+                    const contenido = data.contenido[area][temaIndex] || "Contenido no disponible";
+                    tituloTema.textContent = localStorage.getItem("temaNombre");
                     contenidoTema.textContent = contenido;
                 });
-            checkLeido.addEventListener("change", function() {
-                btnContinuar.disabled = !this.checked;
+            document.getElementById("checkLeido").addEventListener("change", function() {
+                document.getElementById("btnContinuar").disabled = !this.checked;
             });
-            btnContinuar.addEventListener("click", function() {
+            document.getElementById("btnContinuar").addEventListener("click", function() {
                 window.location.href = "examen.html";
             });
         });
