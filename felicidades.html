@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felicidades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>¡Felicidades!</h2>
+        <p>Has completado el curso con éxito.</p>
+        <p>Total de monedas obtenidas: <span id="totalMonedas">0</span></p>
+        <p>Total de respuestas correctas: <span id="totalCorrectas">0</span></p>
+        <p class="mensajeFinal">Tu dedicación y esfuerzo son admirables. ¡Sigue adelante!</p>
+        <button onclick="window.location.href='index.html'">Finalizar</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("totalMonedas").textContent = localStorage.getItem("monedas") || 0;
+            document.getElementById("totalCorrectas").textContent = localStorage.getItem("monedas") || 0;
+            localStorage.clear();
+        });
+    </script>
+</body>
+</html>
