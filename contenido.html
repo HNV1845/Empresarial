@@ -4,51 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temario</title>
+    <title>Contenido</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Temario</h2>
-        <progress id="progreso" value="0" max="100"></progress>
-        <div id="temarioLista"></div>
+        <h2 id="tituloTema">Cargando...</h2>
+        <p id="contenidoTema">Cargando contenido...</p>
+        <input type="checkbox" id="checkLeido"> He leído y comprendido
+        <button id="btnContinuar" disabled>Continuar</button>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const area = localStorage.getItem("area");
-            const temasCompletados = JSON.parse(localStorage.getItem("temasCompletados")) || [];
+            const temaIndex = localStorage.getItem("temaActual");
             fetch("data.json")
                 .then(response => response.json())
                 .then(data => {
-                    const temas = data.temario[area] || [];
-                    const temarioLista = document.getElementById("temarioLista");
-                    const progreso = document.getElementById("progreso");
-
-                    // Calcular progreso
-                    const porcentajeProgreso = (temasCompletados.length / temas.length) * 100;
-                    progreso.value = porcentajeProgreso;
-
-                    // Mostrar temas
-                    temas.forEach((tema, index) => {
-                        const btnTema = document.createElement("button");
-                        btnTema.textContent = tema;
-                        if (temasCompletados.includes(index)) {
-                            btnTema.classList.add("completado");
-                        }
-                        btnTema.onclick = function() {
-                            localStorage.setItem("temaActual", index);
-                            window.location.href = "contenido.html";
-                        };
-                        temarioLista.appendChild(btnTema);
-                    });
-
-                    // Verificar si todos los temas están completados
-                    if (temasCompletados.length === temas.length) {
-                        const mensaje = document.createElement("p");
-                        mensaje.textContent = "¡Has completado todos los temas!";
-                        temarioLista.appendChild(mensaje);
-                    }
+                    document.getElementById("tituloTema").textContent = data.temario[area][temaIndex];
+                    document.getElementById("contenidoTema").textContent = data.contenido[area][temaIndex];
                 });
+            document.getElementById("checkLeido").addEventListener("change", function() {
+                document.getElementById("btnContinuar").disabled = !this.checked;
+            });
+            document.getElementById("btnContinuar").addEventListener("click", function() {
+                window.location.href = "examen.html";
+            });
         });
     </script>
 </body>
