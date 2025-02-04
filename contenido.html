@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contenido del Tema</title>
+    <title>Contenido</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2 id="tituloTema">Tema</h2>
+        <h2 id="tituloTema">Cargando...</h2>
         <p id="contenidoTema">Cargando contenido...</p>
         <input type="checkbox" id="checkLeido"> He leído y comprendido
         <button id="btnContinuar" disabled>Continuar</button>
@@ -18,14 +18,11 @@
         document.addEventListener("DOMContentLoaded", function() {
             const area = localStorage.getItem("area");
             const temaIndex = localStorage.getItem("temaActual");
-            const tituloTema = document.getElementById("tituloTema");
-            const contenidoTema = document.getElementById("contenidoTema");
             fetch("data.json")
                 .then(response => response.json())
                 .then(data => {
-                    const contenido = data.contenido[area][temaIndex] || "Contenido no disponible";
-                    tituloTema.textContent = localStorage.getItem("temaNombre");
-                    contenidoTema.textContent = contenido;
+                    document.getElementById("tituloTema").textContent = data.temario[area][temaIndex];
+                    document.getElementById("contenidoTema").textContent = data.contenido[area][temaIndex];
                 });
             document.getElementById("checkLeido").addEventListener("change", function() {
                 document.getElementById("btnContinuar").disabled = !this.checked;
