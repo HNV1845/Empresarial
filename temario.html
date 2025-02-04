@@ -22,6 +22,13 @@
                 .then(data => {
                     const temas = data.temario[area] || [];
                     const temarioLista = document.getElementById("temarioLista");
+                    const progreso = document.getElementById("progreso");
+
+                    // Calcular progreso
+                    const porcentajeProgreso = (temasCompletados.length / temas.length) * 100;
+                    progreso.value = porcentajeProgreso;
+
+                    // Mostrar temas
                     temas.forEach((tema, index) => {
                         const btnTema = document.createElement("button");
                         btnTema.textContent = tema;
