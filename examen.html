@@ -50,6 +50,7 @@
                         const resultado = document.getElementById("resultado");
                         resultado.style.display = "block";
                         resultado.textContent = `Respuestas correctas: ${correctas} de ${preguntas.length}`;
+
                         if (correctas >= 4) {
                             let temasCompletados = JSON.parse(localStorage.getItem("temasCompletados")) || [];
                             const temaActual = parseInt(localStorage.getItem("temaActual"));
@@ -57,7 +58,16 @@
                                 temasCompletados.push(temaActual);
                                 localStorage.setItem("temasCompletados", JSON.stringify(temasCompletados));
                             }
-                            setTimeout(() => window.location.href = "temario.html", 3000);
+
+                            // Verificar si es el último tema
+                            const totalTemas = data.temario[area].length;
+                            if (temasCompletados.length === totalTemas) {
+                                // Redirigir a felicidades.html si se completaron todos los temas
+                                setTimeout(() => window.location.href = "felicidades.html", 3000);
+                            } else {
+                                // Redirigir a temario.html si no es el último tema
+                                setTimeout(() => window.location.href = "temario.html", 3000);
+                            }
                         } else {
                             resultado.textContent += "\nNo aprobaste, vuelve a leer el contenido e intenta nuevamente.";
                         }
