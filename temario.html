@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temario - Capacitación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Temario de Capacitación</h2>
+        <p>Selecciona un tema para comenzar el aprendizaje.</p>
+        
+        <div id="temarioLista">
+            <!-- Los temas se cargarán dinámicamente aquí -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const area = localStorage.getItem("area");
+            const temarioLista = document.getElementById("temarioLista");
+            
+            const temarios = {
+                "secretaria": ["Funciones de la Secretaría", "Documentación Requerida", "Actualización de Datos"],
+                "captaciones": ["Tipos de Depósitos", "Apertura de CDP", "Retiro y Vencimiento"],
+                "caja": ["Manejo de Caja", "Control de Cheques", "Remesas y Arqueos"],
+                "creditos": ["Solicitud de Crédito", "Evaluación Financiera", "Garantías y Requisitos", "Análisis de Riesgo", "Aprobación y Desembolso"]
+            };
+            
+            if (temarios[area]) {
+                temarios[area].forEach((tema, index) => {
+                    const btnTema = document.createElement("button");
+                    btnTema.textContent = tema;
+                    btnTema.onclick = function() {
+                        localStorage.setItem("temaActual", index);
+                        window.location.href = "contenido.html";
+                    };
+                    temarioLista.appendChild(btnTema);
+                });
+            } else {
+                temarioLista.innerHTML = "<p>No hay temario disponible para esta área.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
