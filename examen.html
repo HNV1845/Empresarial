@@ -21,6 +21,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const area = localStorage.getItem("area");
             const preguntasContainer = document.getElementById("preguntas");
+
             fetch("data.json")
                 .then(response => response.json())
                 .then(data => {
@@ -35,6 +36,7 @@
                         preguntasContainer.appendChild(divPregunta);
                     });
                 });
+
             document.getElementById("btnEnviar").addEventListener("click", function() {
                 let correctas = 0;
                 fetch("data.json")
@@ -47,6 +49,7 @@
                                 correctas++;
                             }
                         });
+
                         const resultado = document.getElementById("resultado");
                         resultado.style.display = "block";
                         resultado.textContent = `Respuestas correctas: ${correctas} de ${preguntas.length}`;
@@ -54,6 +57,7 @@
                         if (correctas >= 4) {
                             let temasCompletados = JSON.parse(localStorage.getItem("temasCompletados")) || [];
                             const temaActual = parseInt(localStorage.getItem("temaActual"));
+
                             if (!temasCompletados.includes(temaActual)) {
                                 temasCompletados.push(temaActual);
                                 localStorage.setItem("temasCompletados", JSON.stringify(temasCompletados));
