@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenido del Tema</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 id="tituloTema">Tema</h2>
+        <p id="contenidoTema">Cargando contenido...</p>
+        <input type="checkbox" id="checkLeido"> He leído y comprendido
+        <button id="btnContinuar" disabled>Continuar</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const area = localStorage.getItem("area");
+            const temaIndex = localStorage.getItem("temaActual");
+            const tituloTema = document.getElementById("tituloTema");
+            const contenidoTema = document.getElementById("contenidoTema");
+            const checkLeido = document.getElementById("checkLeido");
+            const btnContinuar = document.getElementById("btnContinuar");
+            
+            const contenidos = {
+                "secretaria": ["Descripción de funciones de la Secretaría...", "Documentos requeridos para trámites...", "Proceso de actualización de datos..."],
+                "captaciones": ["Diferentes tipos de depósitos...", "Procedimientos para apertura de CDP...", "Proceso de retiro y vencimiento..."],
+                "caja": ["Gestión del manejo de caja...", "Control y validación de cheques...", "Remesas y arqueos de caja..."],
+                "creditos": ["Procedimientos para solicitar un crédito...", "Evaluación financiera y solvencia...", "Garantías y requisitos del crédito...", "Análisis de riesgo crediticio...", "Aprobación y desembolso del crédito..."]
+            };
+            
+            if (contenidos[area] && contenidos[area][temaIndex]) {
+                tituloTema.textContent = contenidos[area][temaIndex];
+                contenidoTema.textContent = contenidos[area][temaIndex];
+            } else {
+                contenidoTema.textContent = "No hay contenido disponible para este tema.";
+            }
+            
+            checkLeido.addEventListener("change", function() {
+                btnContinuar.disabled = !this.checked;
+            });
+            
+            btnContinuar.addEventListener("click", function() {
+                window.location.href = "examen.html";
+            });
+        });
+    </script>
+</body>
+</html>
