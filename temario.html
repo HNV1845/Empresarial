@@ -4,40 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temario - Capacitación</title>
+    <title>Temario</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Temario de Capacitación</h2>
-        <p>Selecciona un tema para comenzar el aprendizaje.</p>
-        <div id="temarioLista" class="list-container"></div>
+        <h2>Temario</h2>
+        <progress id="progreso" value="0" max="100"></progress>
+        <div id="temarioLista"></div>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const area = localStorage.getItem("area");
-            const temarioLista = document.getElementById("temarioLista");
             fetch("data.json")
                 .then(response => response.json())
                 .then(data => {
-                    const temarios = data.temario[area] || [];
-                    temarios.forEach((tema, index) => {
+                    const temas = data.temario[area] || [];
+                    const temarioLista = document.getElementById("temarioLista");
+                    temas.forEach((tema, index) => {
                         const btnTema = document.createElement("button");
                         btnTema.textContent = tema;
-                        btnTema.classList.add("tema-boton");
                         btnTema.onclick = function() {
                             localStorage.setItem("temaActual", index);
-                            localStorage.setItem("temaNombre", tema);
                             window.location.href = "contenido.html";
                         };
                         temarioLista.appendChild(btnTema);
                     });
-                })
-                .catch(error => {
-                    temarioLista.innerHTML = "<p>Error al cargar los temas. Intenta nuevamente.</p>";
-                    console.error("Error cargando data.json:", error);
                 });
         });
     </script>
 </body>
 </html>
+
