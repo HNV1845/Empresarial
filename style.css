@@ -8,7 +8,6 @@ body {
     align-items: center;
     height: 100vh;
 }
-
 .container {
     background: white;
     padding: 20px;
@@ -18,17 +17,14 @@ body {
     width: 90%;
     max-width: 400px;
 }
-
 h2 {
     color: #333;
 }
-
 label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
 }
-
 input, select {
     width: 100%;
     padding: 8px;
@@ -36,7 +32,6 @@ input, select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
 button {
     margin-top: 15px;
     width: 100%;
@@ -48,38 +43,10 @@ button {
     cursor: pointer;
     font-size: 16px;
 }
-
 button:hover {
     background-color: #0056b3;
 }
-
-.logo {
-    width: 150px;
-    display: block;
-    margin: 0 auto 10px;
-}
-
-.motivacion {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
-    font-style: italic;
-}
-<style>
-.tema-boton {
-    display: block;
+progress {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 16px;
+    height: 20px;
 }
-.tema-boton:hover {
-    background-color: #0056b3;
-}
-</style>
